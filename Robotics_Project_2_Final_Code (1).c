@@ -82,7 +82,7 @@ void initOurSensors(void)
 }
 int readGyroAngleSensor(void)
 {
-    // Return of angle in ° -180 to 180
+    // Return of angle in ï¿½ -180 to 180
     return readSensor(IN_2);
 }
 
@@ -209,6 +209,20 @@ void wallFollowing()
     		rotateCCW();
 
     	}
+
+		if(x == 3)
+    	{
+    		OnRevReg(OUT_A, SPEED/2);
+    		OnRevReg(OUT_D, SPEED/2);
+    		Wait(1200);
+    		Off(OUT_AD);
+
+    		Wait(500);
+
+    		rotateCCW();
+
+    	}
+
     	if(correction == 0)
     	{
     		OnFwdReg(OUT_D, totalPower);
